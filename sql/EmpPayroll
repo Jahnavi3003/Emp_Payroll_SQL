@@ -118,3 +118,59 @@ mysql> SELECT * FROM employee_payroll;
 | 103 | Ravi   | 300000 | 2022-01-11 | M      |
 +-----+--------+--------+------------+--------+
 3 rows in set (0.00 sec)
+
+
+UC 7:
+
+mysql> SELECT SUM(Salary) FROM employee_payroll WHERE Gender = 'F' GROUP BY Gender;
++-------------+
+| SUM(Salary) |
++-------------+
+|      300000 |
++-------------+
+1 row in set (0.00 sec)
+
+mysql> SELECT Id , Name , AVG(Salary) FROM employee_payroll GROUP BY Gender;
++-----+------+-------------+
+| Id  | Name | AVG(Salary) |
++-----+------+-------------+
+| 101 | Janu |      150000 |
+| 103 | Ravi |      300000 |
++-----+------+-------------+
+2 rows in set (0.01 sec)
+
+mysql> SELECT MIN(Salary) FROM employee_payroll WHERE Gender = 'F' GROUP BY Gender;
++-------------+
+| MIN(Salary) |
++-------------+
+|      100000 |
++-------------+
+1 row in set (0.00 sec)
+
+mysql> SELECT Id , Name , MAX(Salary) FROM employee_payroll GROUP BY Gender;
++-----+------+-------------+
+| Id  | Name | MAX(Salary) |
++-----+------+-------------+
+| 101 | Janu |      200000 |
+| 103 | Ravi |      300000 |
++-----+------+-------------+
+2 rows in set (0.00 sec)
+
+mysql> SELECT Gender , COUNT(Gender) FROM employee_payroll GROUP BY GENDER;
++--------+---------------+
+| Gender | COUNT(Gender) |
++--------+---------------+
+| F      |             2 |
+| M      |             1 |
++--------+---------------+
+2 rows in set (0.00 sec)
+
+mysql> SELECT Name , COUNT(Name) FROM employee_payroll GROUP BY GENDER;
++------+-------------+
+| Name | COUNT(Name) |
++------+-------------+
+| Janu |           2 |
+| Ravi |           1 |
++------+-------------+
+2 rows in set (0.00 sec)
+
