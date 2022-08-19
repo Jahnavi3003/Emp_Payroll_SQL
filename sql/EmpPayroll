@@ -174,3 +174,25 @@ mysql> SELECT Name , COUNT(Name) FROM employee_payroll GROUP BY GENDER;
 +------+-------------+
 2 rows in set (0.00 sec)
 
+
+UC 8:
+
+mysql> ALTER TABLE employee_payroll ADD Phone_num INT , ADD Address varchar(50) DEFAULT 'AP', ADD Department varchar(30) NOT NULL;
+Query OK, 0 rows affected (0.01 sec)
+Records: 0  Duplicates: 0  Warnings: 0
+
+mysql> describe employee_payroll;
++------------+--------------+------+-----+---------+-------+
+| Field      | Type         | Null | Key | Default | Extra |
++------------+--------------+------+-----+---------+-------+
+| Id         | int unsigned | NO   |     | NULL    |       |
+| Name       | varchar(20)  | NO   |     | NULL    |       |
+| Salary     | double       | NO   |     | NULL    |       |
+| Start      | date         | NO   |     | NULL    |       |
+| Gender     | char(1)      | YES  |     | NULL    |       |
+| Phone_num  | int          | YES  |     | NULL    |       |
+| Address    | varchar(50)  | YES  |     | AP      |       |
+| Department | varchar(30)  | NO   |     | NULL    |       |
++------------+--------------+------+-----+---------+-------+
+8 rows in set (0.01 sec)
+
